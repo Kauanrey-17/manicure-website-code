@@ -5,4 +5,5 @@ const nextConfig = {
   basePath: '/' + repoName,
   assetPrefix: '/' + repoName + '/',
 };
-module.exports = nextConfig;
+
+export default nextConfig;

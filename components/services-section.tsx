@@ -13,7 +13,7 @@ export function ServicesSection() {
         "Cuidado completo com cutículas, lixamento, formato personalizado e esmaltação tradicional. Inclui hidratação das mãos.",
       price: "R$ 25",
       duration: "45 min",
-      image: "/classic-manicure-hands-nail-polish.jpg",
+      image: "public/classic-manicure-hands-nail-polish.jpg",
       popular: false,
     },
     {
@@ -23,7 +23,7 @@ export function ServicesSection() {
         "Tratamento luxuoso com esfoliação, máscara hidratante, massagem relaxante e esmaltação com produtos premium.",
       price: "R$ 45",
       duration: "60 min",
-      image: "/elegant-manicured-hands-with-beautiful-nail-art-so.jpg",
+      image: "public/elegant-manicured-hands-with-beautiful-nail-art-so.jpg",
       popular: true,
     },
     {
@@ -33,7 +33,7 @@ export function ServicesSection() {
         "Unhas longas e resistentes com técnica em gel. Formato personalizado e acabamento natural ou francesinha.",
       price: "R$ 80",
       duration: "90 min",
-      image: "/nail-extensions-long-nails-elegant.jpg",
+      image: "public/nail-extensions-long-nails-elegant.jpg",
       popular: false,
     },
     {
@@ -43,7 +43,7 @@ export function ServicesSection() {
         "Técnica moderna com fibra de vidro para unhas naturais e flexíveis. Ideal para quem busca resistência.",
       price: "R$ 90",
       duration: "100 min",
-      image: "/nail-extensions-long-nails-elegant.jpg",
+      image: "public/nail-extensions-long-nails-elegant.jpg",
       popular: false,
     },
     {
@@ -53,7 +53,7 @@ export function ServicesSection() {
         "Desenhos delicados e elegantes. Inclui francesinha decorada, flores, pontos e listras personalizadas.",
       price: "R$ 45",
       duration: "60 min",
-      image: "/nail-art-decorative-designs-colorful.jpg",
+      image: "public/nail-art-decorative-designs-colorful.jpg",
       popular: true,
     },
     {
@@ -63,7 +63,7 @@ export function ServicesSection() {
         "Designs complexos e únicos. Técnicas avançadas com pedrarias, texturas e arte personalizada exclusiva.",
       price: "R$ 70",
       duration: "90 min",
-      image: "/nail-art-decorative-designs-colorful.jpg",
+      image: "public/nail-art-decorative-designs-colorful.jpg",
       popular: false,
     },
     {
@@ -72,7 +72,7 @@ export function ServicesSection() {
       description: "Cuidado completo dos pés com lixamento, remoção de calosidades, hidratação e esmaltação.",
       price: "R$ 35",
       duration: "50 min",
-      image: "/pedicure-foot-care-relaxing-spa.jpg",
+      image: "public/pedicure-foot-care-relaxing-spa.jpg",
       popular: false,
     },
     {
@@ -81,7 +81,7 @@ export function ServicesSection() {
       description: "Experiência relaxante com escalda-pés, esfoliação, máscara hidratante e massagem terapêutica.",
       price: "R$ 55",
       duration: "75 min",
-      image: "/pedicure-foot-care-relaxing-spa.jpg",
+      image: "public/pedicure-foot-care-relaxing-spa.jpg",
       popular: true,
     },
   ]

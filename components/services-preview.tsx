@@ -10,28 +10,28 @@ export function ServicesPreview() {
       title: "Manicure Clássica",
       description: "Cuidado completo com cutículas, formato e esmaltação perfeita.",
       price: "A partir de R$ 25",
-      image: "/classic-manicure-hands-nail-polish.jpg",
+      image: "public/classic-manicure-hands-nail-polish.jpg",
     },
     {
       icon: <Scissors className="w-8 h-8 text-primary" />,
       title: "Alongamento de Unhas",
       description: "Unhas longas e resistentes com técnicas modernas e seguras.",
       price: "A partir de R$ 80",
-      image: "/nail-extensions-long-nails-elegant.jpg",
+      image: "publix/nail-extensions-long-nails-elegant.jpg",
     },
     {
       icon: <Palette className="w-8 h-8 text-primary" />,
       title: "Nail Art",
       description: "Designs únicos e personalizados para expressar sua personalidade.",
       price: "A partir de R$ 45",
-      image: "/nail-art-decorative-designs-colorful.jpg",
+      image: "public/nail-art-decorative-designs-colorful.jpg",
     },
     {
       icon: <Heart className="w-8 h-8 text-primary" />,
       title: "Pedicure Completa",
       description: "Relaxamento e cuidado especial para seus pés ficarem perfeitos.",
       price: "A partir de R$ 35",
-      image: "/pedicure-foot-care-relaxing-spa.jpg",
+      image: "public/pedicure-foot-care-relaxing-spa.jpg",
     },
   ]
 
