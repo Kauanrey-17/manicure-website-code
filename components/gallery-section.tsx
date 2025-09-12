@@ -11,13 +11,13 @@ export function GallerySection() {
 
   const galleryImages = [
     {
-      src: "/elegant-manicured-hands-with-beautiful-nail-art-so.jpg",
+      src: "./elegant-manicured-hands-with-beautiful-nail-art-so.jpg",
       alt: "Nail art elegante com detalhes dourados",
       category: "Nail Art",
       description: "Design exclusivo com detalhes em dourado e pedrarias",
     },
     {
-      src: "/classic-manicure-hands-nail-polish.jpg",
+      src: "./classic-manicure-hands-nail-polish.jpg",
       alt: "Manicure clássica com esmalte vermelho",
       category: "Manicure",
       description: "Manicure clássica com acabamento perfeito",
