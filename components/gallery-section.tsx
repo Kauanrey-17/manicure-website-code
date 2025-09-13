@@ -11,7 +11,7 @@ export function GallerySection() {
 
   const galleryImages = [
     {
-      src: "public/elegant-manicured-hands-with-beautiful-nail-art-so.jpg",
+      src: "elegant-manicured-hands-with-beautiful-nail-art-so.jpg",
       alt: "Nail art elegante com detalhes dourados",
       category: "Nail Art",
       description: "Design exclusivo com detalhes em dourado e pedrarias",
