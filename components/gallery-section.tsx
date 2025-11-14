@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -11,58 +12,34 @@ export function GallerySection() {
 
   const galleryImages = [
     {
-      src: "images/elegant-manicured-hands-with-beautiful-nail-art-so.jpg",
+      src: "/images/elegant-manicured-hands-with-beautiful-nail-art-so.jpg",
       alt: "Nail art elegante com detalhes dourados",
       category: "Nail Art",
       description: "Design exclusivo com detalhes em dourado e pedrarias",
     },
     {
-      src: "images/classic-manicure-hands-nail-polish.jpg",
+      src: "/images/classic-manicure-hands-nail-polish.jpg",
       alt: "Manicure clássica com esmalte vermelho",
       category: "Manicure",
       description: "Manicure clássica com acabamento perfeito",
     },
     {
-      src: "images/nail-extensions-long-nails-elegant.jpg",
+      src: "/images/nail-extensions-long-nails-elegant.jpg",
       alt: "Alongamento de unhas elegante",
       category: "Alongamento",
       description: "Alongamento em gel com formato stiletto",
     },
     {
-      src: "images/nail-art-decorative-designs-colorful.jpg",
+      src: "/images/nail-art-decorative-designs-colorful.jpg",
       alt: "Nail art colorida e criativa",
       category: "Nail Art",
       description: "Design colorido com técnicas mistas",
     },
     {
-      src: "images/pedicure-foot-care-relaxing-spa.jpg",
+      src: "/images/pedicure-foot-care-relaxing-spa.jpg",
       alt: "Pedicure spa relaxante",
       category: "Pedicure",
       description: "Tratamento spa completo para os pés",
-    },
-    {
-      src: "images/elegant-manicured-hands-with-beautiful-nail-art-so.jpg",
-      alt: "Francesinha moderna",
-      category: "Manicure",
-      description: "Francesinha com twist moderno",
-    },
-    {
-      src: "images/nail-art-decorative-designs-colorful.jpg",
-      alt: "Nail art com flores",
-      category: "Nail Art",
-      description: "Delicadas flores pintadas à mão",
-    },
-    {
-      src: "images/nail-extensions-long-nails-elegant.jpg",
-      alt: "Unhas longas com brilho",
-      category: "Alongamento",
-      description: "Alongamento com acabamento em glitter",
-    },
-    {
-      src: "images/classic-manicure-hands-nail-polish.jpg",
-      alt: "Esmalte nude elegante",
-      category: "Manicure",
-      description: "Tons nude para o dia a dia",
     },
   ]
 
@@ -70,36 +47,25 @@ export function GallerySection() {
   const [activeCategory, setActiveCategory] = useState("Todos")
 
   const filteredImages =
-    activeCategory === "Todos" ? galleryImages : galleryImages.filter((img) => img.category === activeCategory)
+    activeCategory === "Todos"
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === activeCategory)
 
-  const openModal = (index: number) => {
-    setSelectedImage(index)
-  }
-
-  const closeModal = () => {
-    setSelectedImage(null)
-  }
-
-  const nextImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % filteredImages.length)
-    }
-  }
-
-  const prevImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage(selectedImage === 0 ? filteredImages.length - 1 : selectedImage - 1)
-    }
-  }
+  const openModal = (index: number) => setSelectedImage(index)
+  const closeModal = () => setSelectedImage(null)
+  const nextImage = () => selectedImage !== null && setSelectedImage((selectedImage + 1) % filteredImages.length)
+  const prevImage = () =>
+    selectedImage !== null &&
+    setSelectedImage(selectedImage === 0 ? filteredImages.length - 1 : selectedImage - 1)
 
   return (
     <section id="galeria" className="py-20 bg-muted">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Nossa Galeria</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Nossa Galeria</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Confira alguns dos nossos trabalhos mais recentes. Cada unha é uma obra de arte única e personalizada.
+            Confira alguns dos nossos trabalhos mais recentes.
           </p>
         </div>
 
@@ -110,11 +76,6 @@ export function GallerySection() {
               key={category}
               variant={activeCategory === category ? "default" : "outline"}
               onClick={() => setActiveCategory(category)}
-              className={
-                activeCategory === category
-                  ? "bg-primary hover:bg-primary/90 text-primary-foreground"
-                  : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-              }
             >
               {category}
             </Button>
@@ -130,14 +91,19 @@ export function GallerySection() {
               onClick={() => openModal(index)}
             >
               <CardContent className="p-0 relative group">
-                <div
-                  className="w-full h-64 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${image.src}')` }}
-                ></div>
+                <div className="relative w-full h-64">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-md"
+                  />
+                </div>
 
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-end">
-                  <div className="p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <Badge className="mb-2 bg-primary text-primary-foreground">{image.category}</Badge>
+                {/* Hover Info */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition flex items-end">
+                  <div className="p-4 text-white translate-y-full group-hover:translate-y-0 transition">
+                    <Badge className="mb-2">{image.category}</Badge>
                     <p className="text-sm">{image.description}</p>
                   </div>
                 </div>
@@ -153,57 +119,50 @@ export function GallerySection() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="absolute top-4 right-4 z-10 bg-black/50 text-white hover:bg-black/70"
+                className="absolute top-4 right-4 bg-black/50 text-white"
                 onClick={closeModal}
               >
                 <X className="w-4 h-4" />
               </Button>
 
+              {/* Prev */}
               <Button
                 variant="ghost"
                 size="sm"
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white"
                 onClick={prevImage}
               >
                 <ChevronLeft className="w-6 h-6" />
               </Button>
 
+              {/* Next */}
               <Button
                 variant="ghost"
                 size="sm"
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white hover:bg-black/70"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white"
                 onClick={nextImage}
               >
                 <ChevronRight className="w-6 h-6" />
               </Button>
 
-              <img
-                src={filteredImages[selectedImage].src || "/placeholder.svg"}
-                alt={filteredImages[selectedImage].alt}
-                className="max-w-full max-h-full object-contain rounded-lg"
-              />
+              {/* Image */}
+              <div className="relative w-[90vw] max-w-3xl h-[70vh] mx-auto">
+                <Image
+                  src={filteredImages[selectedImage].src}
+                  alt={filteredImages[selectedImage].alt}
+                  fill
+                  className="object-contain rounded-lg"
+                />
+              </div>
 
+              {/* Info */}
               <div className="absolute bottom-4 left-4 right-4 bg-black/50 text-white p-4 rounded-lg">
-                <Badge className="mb-2 bg-primary text-primary-foreground">
-                  {filteredImages[selectedImage].category}
-                </Badge>
+                <Badge className="mb-2">{filteredImages[selectedImage].category}</Badge>
                 <p>{filteredImages[selectedImage].description}</p>
               </div>
             </div>
           </div>
         )}
-
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-6">
-            Gostou do que viu? Agende seu horário e deixe suas unhas incríveis também!
-          </p>
-          <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
-            <a href="https://wa.me/5511999999999" target="_blank" rel="noreferrer">
-              Agendar Agora
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   )
